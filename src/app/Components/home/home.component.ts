@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { DataService } from 'src/app/Service/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(public data:DataService){}
+
+  
+  ngOnInit()
+  {
+    this.data.getMessage().subscribe(
+      res => {console.log(res);},
+      err => {console.log(err);}
+    )
+
+
+  }
 }
