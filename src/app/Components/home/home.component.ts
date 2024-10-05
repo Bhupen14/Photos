@@ -8,13 +8,14 @@ import { DataService } from 'src/app/Service/data.service';
 })
 export class HomeComponent {
 
+  serverData ="";
   constructor(public data:DataService){}
 
   
   ngOnInit()
   {
     this.data.getMessage().subscribe(
-      res => {console.log(res);},
+      res => {this.serverData = res.ms;},
       err => {console.log(err);}
     )
 
