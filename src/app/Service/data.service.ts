@@ -10,7 +10,10 @@ export class DataService {
 
 
 getMessage(){
-  return this.http.get<any>('http://192.168.1.54:3000');
+  var config = {
+    headers: {'Access-Control-Allow-Origin': '*'}
+};
+  return this.http.get<any>('http://192.168.1.54:3000',config);
 
 }
 
